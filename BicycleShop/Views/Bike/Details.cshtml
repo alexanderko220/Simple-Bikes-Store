@@ -1,0 +1,26 @@
+﻿@model Bike
+
+
+<div class="card">
+    <img class="card-img" alt="@Model.Model" src="@Model.ImageUrl">
+    <div class="card-header">
+        <h4 class="nav-pills">@Model.Price.ToString("C")</h4>
+        <a href="#">@Model.Model</a>
+        <a class="btn btn-success float-right" asp-controller="Cart" asp-action="AddToShoppingCart"
+               asp-route-BikeId="@Model.BikeId">Add to cart</a>
+        
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.ShortDescription</p>
+        <p class="card-text">@Model.LongDescription</p>
+    </div>
+</div>
+
+<div class="container">
+    @await Component.InvokeAsync("SpecificationComponent", new { id = Model.BikeId })
+    
+</div>
+<p class="blockquote-footer">Weight refers to the smallest frame size (without pedals)</p>
+
+
+

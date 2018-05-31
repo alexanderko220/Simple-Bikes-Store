@@ -1,0 +1,36 @@
+﻿@model Specification
+@{
+    ViewData["Title"] = "Edit Specification";
+}
+
+<h4 class="text-center">Edit Specification</h4>
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <form asp-action="EditSpecification" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="BikeId" />
+            <input type="hidden" asp-for="Id" />
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                @if (property.PropertyName != "Id" && property.PropertyName != "Bike" && property.PropertyName != "BikeId")
+                {
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        </div>
+                        <div class="col-md-8">
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            @Html.ValidationMessage(property.PropertyName, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+            }
+            <div class="form-group row">
+                <div class="offset-2 col-md-8">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

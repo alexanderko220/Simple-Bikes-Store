@@ -1,0 +1,255 @@
+﻿@model BicycleShop.ViewModels.AdminCreateViewModel
+
+
+
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="All" class="offset-2 text-danger"></div>
+            
+            <div class="form-group row">
+                <label asp-for="Bike.Model" class="col-md-2"></label>
+                <input asp-for="Bike.Model" class="col-md-8 form-control" />
+                <span asp-validation-for="Bike.Model"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Bike.CategoryId" class="control-label col-md-2">Category</label>
+                <select asp-for="Bike.CategoryId" class="form-control col-md-8" asp-items="ViewBag.Category"></select>
+                <span asp-validation-for="Bike.CategoryId" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Bike.ShortDescription" class="control-label col-md-2"></label>
+                <textarea asp-for="Bike.ShortDescription" class="form-control col-md-8"></textarea>
+                <span asp-validation-for="Bike.ShortDescription" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Bike.LongDescription" class="control-label col-md-2"></label>
+                <textarea asp-for="Bike.LongDescription" class="form-control col-md-8"></textarea>
+                <span asp-validation-for="Bike.LongDescription" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Bike.Price" class="control-label col-md-2"></label>
+                <input asp-for="Bike.Price" class="form-control col-md-8" />
+                <span asp-validation-for="Bike.Price" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Bike.ImageUrl" class="control-label col-md-2"></label>
+                <input asp-for="Bike.ImageUrl" class="form-control col-md-8" />
+                <span asp-validation-for="Bike.ImageUrl" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Bike.ImageThumbnailUrl" class="control-label col-md-2"></label>
+                <input asp-for="Bike.ImageThumbnailUrl" class="form-control col-md-8" />
+                <span asp-validation-for="Bike.ImageThumbnailUrl" class="offset-2 text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="checkbox offset-2 col-md-8">
+                    <label>
+                        <input asp-for="Bike.IsBikeOfTheWeek" /> @Html.DisplayNameFor(model => model.Bike.IsBikeOfTheWeek)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="checkbox offset-2 col-md-8">
+                    <label>
+                        <input asp-for="Bike.InStock" /> @Html.DisplayNameFor(model => model.Bike.InStock)
+                    </label>
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label asp-for="Specification.Frame" class="col-md-2"></label>
+                <input asp-for="Specification.Frame" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Frame"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Fork" class="col-md-2"></label>
+                <input asp-for="Specification.Fork" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Fork"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.TravelFork" class="col-md-2"></label>
+                <input asp-for="Specification.TravelFork" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.TravelFork"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.RearSuspension" class="col-md-2"></label>
+                <input asp-for="Specification.RearSuspension" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.RearSuspension"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.TravelRearSuspension" class="col-md-2"></label>
+                <input asp-for="Specification.TravelRearSuspension" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.TravelRearSuspension"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Wheelset" class="col-md-2"></label>
+                <input asp-for="Specification.Wheelset" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Wheelset"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Brakes" class="col-md-2"></label>
+                <input asp-for="Specification.Brakes" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Brakes"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.BrakeDiscs" class="col-md-2"></label>
+                <input asp-for="Specification.BrakeDiscs" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.BrakeDiscs"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Crank" class="col-md-2"></label>
+                <input asp-for="Specification.Crank" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Crank"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.InnerBearing" class="col-md-2"></label>
+                <input asp-for="Specification.InnerBearing" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.InnerBearing"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Shifter" class="col-md-2"></label>
+                <input asp-for="Specification.Shifter" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Shifter"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Specification.Derailleur" class="col-md-2"></label>
+                <input asp-for="Specification.Derailleur" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Derailleur"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.RearDerailleur" class="col-md-2"></label>
+                <input asp-for="Specification.RearDerailleur" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.RearDerailleur"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.FrontHub" class="col-md-2"></label>
+                <input asp-for="Specification.FrontHub" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.FrontHub"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.RearHub" class="col-md-2"></label>
+                <input asp-for="Specification.RearHub" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.RearHub"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.RearLight" class="col-md-2"></label>
+                <input asp-for="Specification.RearLight" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.RearLight"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Headlight" class="col-md-2"></label>
+                <input asp-for="Specification.Headlight" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Headlight"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.RearRack" class="col-md-2"></label>
+                <input asp-for="Specification.RearRack" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.RearRack"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Cassette" class="col-md-2"></label>
+                <input asp-for="Specification.Cassette" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Cassette"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Chain" class="col-md-2"></label>
+                <input asp-for="Specification.Chain" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Chain"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Handlebar" class="col-md-2"></label>
+                <input asp-for="Specification.Handlebar" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Handlebar"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Steam" class="col-md-2"></label>
+                <input asp-for="Specification.Steam" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Steam"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Spokes" class="col-md-2"></label>
+                <input asp-for="Specification.Spokes" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Spokes"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Headset" class="col-md-2"></label>
+                <input asp-for="Specification.Headset" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Headset"></span>
+            </div>
+            
+            <div class="form-group row">
+                <label asp-for="Specification.Grips" class="col-md-2"></label>
+                <input asp-for="Specification.Grips" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Grips"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Seatpost" class="col-md-2"></label>
+                <input asp-for="Specification.Seatpost" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Seatpost"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Saddle" class="col-md-2"></label>
+                <input asp-for="Specification.Saddle" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Saddle"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Rims" class="col-md-2"></label>
+                <input asp-for="Specification.Rims" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Rims"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Tires" class="col-md-2"></label>
+                <input asp-for="Specification.Tires" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Tires"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Stand" class="col-md-2"></label>
+                <input asp-for="Specification.Stand" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Stand"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Splashguard" class="col-md-2"></label>
+                <input asp-for="Specification.Splashguard" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Splashguard"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Bell" class="col-md-2"></label>
+                <input asp-for="Specification.Bell" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Bell"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Color" class="col-md-2"></label>
+                <input asp-for="Specification.Color" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Color"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Weight" class="col-md-2"></label>
+                <input asp-for="Specification.Weight" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Weight"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.FrameSize" class="col-md-2"></label>
+                <input asp-for="Specification.FrameSize" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.FrameSize"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Specification.Pedals" class="col-md-2"></label>
+                <input asp-for="Specification.Pedals" class="col-md-8 form-control" />
+                <span asp-validation-for="Specification.Pedals"></span>
+            </div>
+            <div class="form-group row">
+                <div class="offset-2 col-md-8">
+                    <input type="submit" value="Add Bike" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

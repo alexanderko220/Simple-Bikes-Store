@@ -1,0 +1,42 @@
+﻿@model CartViewModel
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">@TempData["message"]</div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Selected amount</th>
+            <th scope="col">Bike</th>
+            <th scope="col" class="text-right">Price</th>
+            <th scope="col" class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <tr>
+                <td class="text-center">@line.Amount</td>
+                <td class="text-left">@line.Bike.Model</td>
+                <td class="text-right">@line.Bike.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Amount * line.Bike.Price).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-info" asp-controller="Order" asp-action="Checkout">Check Out</a>
+</div>
+

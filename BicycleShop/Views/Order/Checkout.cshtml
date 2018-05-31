@@ -1,0 +1,29 @@
+﻿@model Order
+
+
+<form asp-action="Checkout" method="post" role="form" id="commentForm">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @foreach (var formItem in ViewData.ModelMetadata.Properties)
+    {
+        @if (formItem.PropertyName != "OrderLines" && formItem.PropertyName != "OrderPlaced"
+           && formItem.PropertyName != "OrderId" && formItem.PropertyName != "OrderTotal")
+        {
+            <div class="form-group">
+                <label class="col-md-2">@(formItem.DisplayName ?? formItem.PropertyName)</label>
+                <div class="col-md-5">
+                    @Html.TextBox(formItem.PropertyName, null, new { @class = "form-control" })
+                    <span>@Html.ValidationMessage(formItem.PropertyName, new { @class = "text-danger" })</span>
+                </div>
+            </div>
+        }
+    }
+
+    <div class="form-group">
+        <div class="col-md-2 col-md-5">
+            <input type="submit" class="btn btn-info" value="Comlete Order" />
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,18 @@
+﻿
+.footerBackground {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url(/Content/Images/panel-background-kontakt_bottom.jpg);
+   
+}
+section {
+    
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+section, .container, .container-fluid {
+    position: relative;
+    word-wrap: break-word;
+}

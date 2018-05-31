@@ -1,0 +1,23 @@
+﻿@model Bike
+
+
+
+<div class="col-sm-4 col-lg-4 col-md-4 d-flex align-items-stretch ">
+    <div class="card text-white mb-3">
+        <div>
+            <img class="card-img-top" src="@Model.ImageThumbnailUrl" alt="@Model.Model" />
+        </div>
+
+        <div class="card-body">
+            <h4 class="float-right badge-pill badge-secondary">@Model.Price.ToString("c")</h4>
+            <div>
+                <h6 class="card-title"><a asp-controller="Bike" asp-action="Details" asp-route-id="@Model.BikeId">@Model.Model</a></h6>
+                <p class="card-text">@Model.ShortDescription</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-success float-right" asp-controller="Cart" asp-action="AddToShoppingCart"
+               asp-route-BikeId="@Model.BikeId">Add to Cart</a>
+        </div>
+    </div>
+</div>

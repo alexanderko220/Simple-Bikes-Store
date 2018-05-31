@@ -1,0 +1,13 @@
+﻿
+@model BikeListViewModel
+    
+
+<h2>@Model.CurrentCategory</h2>
+
+<div class="card-group">
+    @foreach (var item in Model.Bikes)
+    {
+       @Html.Partial("BikeOverviewSummary", item)
+    }
+
+</div>

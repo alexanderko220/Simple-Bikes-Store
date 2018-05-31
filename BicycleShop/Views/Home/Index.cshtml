@@ -1,0 +1,19 @@
+﻿@model HomeViewModel
+
+
+@await Html.PartialAsync("HomeCarousel")
+
+
+<div class="alert alert-dismissible alert-primary">
+    <h3 class="text-center text-success">Bike Sales of the Week!</h3>
+</div>
+
+
+<div class="row">
+    <div class="card-group">
+        @foreach (var bike in Model.BikesOfTheWeek)
+        {
+            @Html.Partial("BikeOfTheWeekSummary", bike)
+        }
+    </div>
+</div>
